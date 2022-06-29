@@ -89,11 +89,29 @@
         <option value="">Select a Type</option>
     </select>
 
-    <!--Start code that displays selection-->
+    <!--Start code that displays results HTML table-->
 
-    <table class="hidden">
-        <tr><td>test table</td></tr>
-    </table>
+    <table id="resultstable" class="hidden">
+        <thead>
+          <tr>
+            <th scope="col">Location Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Location ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="locationname"></td>
+            <td id="address"></td>
+            <td id="city"></td>
+            <td id="state"></td>
+            <td id="locationid"></td>
+          </tr>
+        </tbody>
+      </table>
+            <!--End HTML table-->
 
     <!-- Footer -->
     <footer>

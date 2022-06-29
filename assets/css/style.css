@@ -8,6 +8,15 @@ body {
     text-align: center;
 }
 
+table {
+	width: 100%;
+	text-align: center;
+}
+
+th, td {
+	padding: 15px;
+  } 
+
 strong { font-weight: 500; }
 
 a, a:hover, a:focus {

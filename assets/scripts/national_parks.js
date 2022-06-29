@@ -18,6 +18,7 @@
 let searchTypeDDL = document.querySelector("#searchTypeDDL");
 let locationsDDL = document.querySelector("#locations");
 let typesDDL = document.querySelector("#types");
+let resultsTable = document.querySelector("#resultstable");
 
 
 searchTypeDDL.addEventListener("change", function(event){
@@ -44,8 +45,12 @@ if(event.target.value === "") {
 
 })
 
+//In progress
 locationsDDL.addEventListener("change", function(event) {
     console.log("You selected a location. Location code to follow.")
+    if(event.target.value != "") {
+        resultsTable.classList.remove("hidden");
+    }
 })
 
 
@@ -60,4 +65,9 @@ function generateTypesDDLOptions(){
     parkTypesArray.forEach((parkType) => {
         typesDDL.innerHTML += `<option value=${parkType}>${parkType}</option>`
     })
+}
+
+//In progress 
+function generateSelectedLocation(){
+
 }
