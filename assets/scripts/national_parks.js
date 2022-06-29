@@ -9,26 +9,55 @@
 // }, 5000 );
 
 
+// working, but removed for now 
+// let theSampleButton = document.querySelector("#theDemoButton"); 
+// let theSampleUL = document.querySelector("#locations"); 
+// let parkTypeUL = document.querySelector("#partTypes"); 
 
-let theSampleButton = document.querySelector("#theDemoButton"); 
-let theSampleUL = document.querySelector("#locations"); 
-let parkTypeUL = document.querySelector("#partTypes"); 
+//Final below
+let searchTypeDDL = document.querySelector("#searchTypeDDL");
+let locationsDDL = document.querySelector("#locations");
+let typesDDL = document.querySelector("#types");
 
 
-theSampleButton.addEventListener("click", function(event){
-    console.log(locationsArray)
-    console.log(nationalParksArray)
-    console.log(parkTypesArray)
+searchTypeDDL.addEventListener("change", function(event){
+//Check which search type
+//if search type is location, then show locations dropdown 
+//if search type is type, then show types drop down
 
-    locationsArray.forEach((location) => {
-        theSampleUL.innerHTML += `<li>${location}</li>`
-    })
+if(event.target.value === "location") {
+    generateLocationsDDLOptions(); //This calls the locations function below
+    locationsDDL.classList.remove("hidden");
+    typesDDL.classList.add("hidden");
+}
 
-    parkTypesArray.forEach((parkType) => {
-        parkTypeUL.innerHTML += `<li>${parkType}</li>`
-    })
+if(event.target.value === "type") {
+    generateTypesDDLOptions();
+    typesDDL.classList.remove("hidden");
+    locationsDDL.classList.add("hidden");
+}
 
-    theSampleUL.classList.remove("d-none")
-    parkTypeUL.classList.remove("d-none")
+if(event.target.value === "") {
+    locationsDDL.classList.add("hidden");
+    typesDDL.classList.add("hidden");
+}
+
 })
 
+locationsDDL.addEventListener("change", function(event) {
+    console.log("You selected a location. Location code to follow.")
+})
+
+
+
+function generateLocationsDDLOptions(){
+    locationsArray.forEach((location) => {
+        locationsDDL.innerHTML += `<option value=${location}>${location}</option>`
+    })
+}
+
+function generateTypesDDLOptions(){
+    parkTypesArray.forEach((parkType) => {
+        typesDDL.innerHTML += `<option value=${parkType}>${parkType}</option>`
+    })
+}

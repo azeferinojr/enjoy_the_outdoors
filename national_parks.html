@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text wow fadeInLeft">
-                    <h1>Bootstrap Navbar Menu Template</h1>
+                    <h1>National Park Search</h1>
                     <div class="description">
                         <p class="medium-paragraph">
                             This is a free "Navbar Menu" made with the Bootstrap framework.
@@ -74,7 +74,26 @@
         </div>
     </div>
 
+    <!--Start drop down codes-->
+    <select id="searchTypeDDL" class="form-select">
+        <option value="">Choose a Search Type</option>
+        <option value="location">Search By Location</option>
+        <option value="type">Search By Type</option>
+    </select>
 
+    <select id="locations" class="hidden">
+        <option value="">Select a Location</option>
+    </select>
+
+    <select id="types" class="hidden">
+        <option value="">Select a Type</option>
+    </select>
+
+    <!--Start code that displays selection-->
+
+    <table class="hidden">
+        <tr><td>test table</td></tr>
+    </table>
 
     <!-- Footer -->
     <footer>
@@ -104,6 +123,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="assets/scripts/load_national_parks_data.js"></script>
+    <script src="assets/scripts/national_parks.js"></script>
 
 </body>
 </html>
