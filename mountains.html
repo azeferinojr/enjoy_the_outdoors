@@ -75,24 +75,35 @@
     </div>
 
 
-    <!-- onmousedown="this.value='';" onchange="selectMountain(this.value);" -->
-    <!--Start Moutains code and display-->
-        <div id="mountainselectdiv" class="form-select">
-            <label for="mountaindropdown">Select a Mountain</label>
-            <select id="mountaindropdown" class="form-select">
-                <option value="">Select one:</option>
-            </select>
-        </div>
 
-      <br>
-      <br>
 
-    <!-- Start Mouintain info -->
-     <div class="d-none">
-        <div class="row" id="mountaininfodiv">
+
+        <!--Start drop down codes-->  
+        <select id="mountainDDL">
+            <option value="">Select a Mountain</option>
+        </select>
+    
         
-        </div>  
-     </div>
+    
+        <!--Start code that displays results table-->
+    
+        <table class="table hidden" id="searchResults">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>State</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+    
+        <!--End results table-->
+
+
+
 
 
     <!-- Footer -->

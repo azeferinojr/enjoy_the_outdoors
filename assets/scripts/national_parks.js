@@ -14,12 +14,17 @@
 // let theSampleUL = document.querySelector("#locations"); 
 // let parkTypeUL = document.querySelector("#partTypes"); 
 
+// console.log(nationalParksArray)
+
 //Final below
 let searchTypeDDL = document.querySelector("#searchTypeDDL");
 let locationsDDL = document.querySelector("#locations");
 let typesDDL = document.querySelector("#types");
-let resultsTable = document.querySelector("#resultstable");
+let searchResults = document.querySelector("#searchResults");
+let searchResultsBody = document.querySelector("#searchResults tbody");
 
+// let searchResults = document.querySelector(#searchResults);
+// let searchResultsBody = document.querySelector
 
 searchTypeDDL.addEventListener("change", function(event){
 //Check which search type
@@ -36,22 +41,85 @@ if(event.target.value === "type") {
     generateTypesDDLOptions();
     typesDDL.classList.remove("hidden");
     locationsDDL.classList.add("hidden");
+    searchResults.classList.add("hidden");
 }
 
 if(event.target.value === "") {
     locationsDDL.classList.add("hidden");
     typesDDL.classList.add("hidden");
+    searchResults.classList.add("hidden");
+
 }
 
 })
 
-//In progress
-locationsDDL.addEventListener("change", function(event) {
-    console.log("You selected a location. Location code to follow.")
-    if(event.target.value != "") {
-        resultsTable.classList.remove("hidden");
-    }
+
+
+
+
+
+
+//Change event that is triggered when selecting a state from state DDL  
+locationsDDL.addEventListener("change", function(event){
+
+    searchResults.classList.add("hidden")
+   
+    let location = event.target.value;
+
+    let filteredParks = nationalParksArray.filter((nationalPark)=>{
+        return nationalPark.State === location
+    })
+
+    console.log(filteredParks)
+
+    generateTableRows(filteredParks)
+
+    searchResults.classList.remove("hidden")
+
 })
+
+
+// //Change event that is triggered when selecting a type from type DDL  
+//Changed first part of 1st line to typesDDL
+typesDDL.addEventListener("change", function(event){
+
+    searchResults.classList.add("hidden")
+   
+    let type = event.target.value;
+
+    let filteredTypes = nationalParksArray.filter((nationalPark)=>{
+        return nationalPark.LocationName.indexOf(type) >= 0  // this was type originally
+    })
+
+    console.log(filteredTypes)
+
+    generateTableRows(filteredTypes)
+
+    searchResults.classList.remove("hidden")
+
+})
+
+
+
+//Function that generates table when selecting a state from DDL 
+function generateTableRows(someArrayOfData){
+
+    //clear out the tables previous results
+    searchResultsBody.innerHTML = ""
+
+    //generate new table rows and appewnd to the the tbody innerHTML
+    someArrayOfData.forEach((park)=>{
+        let row = ""
+        row += `<tr>`
+        row += `    <td>${park.LocationName}</td>`
+        row += `    <td>${park.State}</td>`
+        row += `    <td>${park.Address}</td>`
+        row += `</tr>`
+
+        searchResultsBody.innerHTML += row
+    })
+
+}
 
 
 
@@ -67,7 +135,12 @@ function generateTypesDDLOptions(){
     })
 }
 
-//In progress 
-function generateSelectedLocation(){
+// function generateResultsOutput(){
+//     nationalParksArray.forEach((natpark) => {
+//         console.log(nationalParksArray)
+//     })
+// }
 
-}
+
+
+
