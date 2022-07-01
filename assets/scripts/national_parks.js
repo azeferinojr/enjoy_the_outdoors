@@ -111,9 +111,9 @@ function generateTableRows(someArrayOfData){
     someArrayOfData.forEach((park)=>{
         let row = ""
         row += `<tr>`
-        row += `    <td>${park.LocationName}</td>`
-        row += `    <td>${park.State}</td>`
-        row += `    <td>${park.Address}</td>`
+        row += `    <td width="33%"><b>${park.LocationName}</b></td>`
+        row += `    <td width="33%">${park.State}</td>`
+        row += `    <td width="33%"><a target="_self" data-toggle="tooltip" title="Search directions to ${park.LocationName} in Google" href="https://www.google.com/search?q=${park.Address}+${park.State}+${park.ZipCode}">${park.Address}</a></td>`
         row += `</tr>`
 
         searchResultsBody.innerHTML += row

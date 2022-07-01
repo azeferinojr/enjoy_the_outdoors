@@ -4,11 +4,12 @@ let searchResultsBody = document.querySelector("#searchResults tbody");
 
 mountainsDDL.addEventListener("change", function (event) {
     //debugger
-    let mountain = event.target.value;
+    let mountainSelected = event.target.value;
 
     let filteredMountains = mountainsArray.filter((mountain) => {
-    return mountain === mountain // was return mountain.name
+    return mountain.name === mountainSelected 
     })
+
 
     generateTableRows(filteredMountains)
 
@@ -30,8 +31,8 @@ function generateTableRows(someArrayOfData){
 someArrayOfData.forEach((mountain)=>{
         let row = ""
         row += `<tr>`
-        row += `    <td><img src="assets/images/mountains/${mountain.img}" height="60"></td>`
-        row += `    <td>${mountain.name}</td>`
+        row += `    <td width="30%"><img src="assets/images/mountains/${mountain.img}"  class="img-thumbnail"></td>`
+        row += `    <td width="30%"><b>${mountain.name}</b><br><i>${mountain.desc}</i></td>`
         row += `    <td>${mountain.elevation}</td>`
         row += `    <td>${mountain.effort}</td>`
         row += `</tr>`
