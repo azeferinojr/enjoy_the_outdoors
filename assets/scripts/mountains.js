@@ -17,6 +17,8 @@ mountainsDDL.addEventListener("change", function (event) {
 })
 
    
+
+
 //Function that generates table when selecting a state from DDL 
 function generateTableRows(someArrayOfData){
 
@@ -28,6 +30,7 @@ function generateTableRows(someArrayOfData){
 someArrayOfData.forEach((mountain)=>{
         let row = ""
         row += `<tr>`
+        row += `    <td><img src="assets/images/mountains/${mountain.img}" height="60"></td>`
         row += `    <td>${mountain.name}</td>`
         row += `    <td>${mountain.elevation}</td>`
         row += `    <td>${mountain.effort}</td>`
@@ -37,3 +40,7 @@ someArrayOfData.forEach((mountain)=>{
 
     })
 }
+
+
+
+
